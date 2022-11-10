@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  employeeserver:
+    build:
+      context: .
+      target: development
+    ports:
+      - 8081:8081
+    depends_on:
+      - mysqlDB
+
+  mysqlDB:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    volumes:
+      - /Users/Ankit/Documents/Learning/learn/mysql/Data:/var/lib/mysql
+
+
